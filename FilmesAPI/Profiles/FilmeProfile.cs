@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using FilmesAPI.Data.Dtos;
+using FilmesAPI.Data.Dtos.Cinemas;
 using FilmesAPI.Models;
 
-namespace FilmesAPI.Profiles {
+namespace FilmesAPI.Profiles
+{
     public class FilmeProfile : Profile{
 
         public FilmeProfile() {
