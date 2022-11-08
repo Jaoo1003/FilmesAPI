@@ -2,6 +2,7 @@
 using FilmesAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class FilmeContextModelSnapshot : ModelSnapshot
+    [Migration("20221107215232_Relacionando cinema e endereco")]
+    partial class Relacionandocinemaeendereco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +38,7 @@ namespace FilmesAPI.Migrations
                     b.HasIndex("EnderecoId")
                         .IsUnique();
 
-                    b.ToTable("Cinemas", (string)null);
+                    b.ToTable("Cinemas");
                 });
 
             modelBuilder.Entity("FilmesAPI.Models.Endereco", b =>
@@ -58,7 +60,7 @@ namespace FilmesAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Enderecos", (string)null);
+                    b.ToTable("Enderecos");
                 });
 
             modelBuilder.Entity("FilmesAPI.Models.Filme", b =>
@@ -85,7 +87,7 @@ namespace FilmesAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Filmes", (string)null);
+                    b.ToTable("Filmes");
                 });
 
             modelBuilder.Entity("FilmesAPI.Models.Cinema", b =>

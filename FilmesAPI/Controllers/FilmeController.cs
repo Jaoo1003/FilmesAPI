@@ -1,5 +1,4 @@
 ﻿using FilmesAPI.Data;
-using FilmesAPI.Data.Dtos;
 using System.Globalization;
 using FilmesAPI.Models;
 using Microsoft.AspNetCore.Components;
@@ -7,16 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 using AutoMapper;
+using FilmesAPI.Data.Dtos.Cinemas;
 
-namespace FilmesAPI.Controllers {
+namespace FilmesAPI.Controllers
+{
     [ApiController]
     [Route("[controller]")]
     public class FilmeController : ControllerBase{
 
-        private FilmeContext _context;
+        private AppDbContext _context;
         private IMapper _mapper;
 
-        public FilmeController(FilmeContext context, IMapper mapper) {
+        public FilmeController(AppDbContext context, IMapper mapper) {
             _context = context;
             _mapper = mapper;
         }

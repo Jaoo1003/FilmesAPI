@@ -10,11 +10,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AppDbContex>(opt => opt.UseMySql(builder.Configuration.GetConnectionString("FilmeConnection"), new MySqlServerVersion(new Version(8, 0))));
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseLazyLoadingProxies().UseMySql(builder.Configuration.GetConnectionString("FilmeConnection"), new MySqlServerVersion(new Version(8, 0))));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
     app.UseSwagger();

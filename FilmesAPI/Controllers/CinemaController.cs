@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FilmesAPI.Controllers {
     [ApiController]
-    [Route("controller")]
+    [Route("[controller]")]
     public class CinemaController : ControllerBase{
 
         private AppDbContext _context;

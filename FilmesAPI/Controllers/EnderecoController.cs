@@ -8,7 +8,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FilmesAPI.Controllers
 {
-
     [ApiController]
     [Route("[controller]")]
     public class EnderecoController : ControllerBase {
@@ -21,6 +20,7 @@ namespace FilmesAPI.Controllers
             _mapper = mapper;
         }
 
+        [HttpPost]
         public IActionResult AdicionaEndereco([FromBody] CreateEnderecoDto enderecoDto) {
             Endereco endereco = _mapper.Map<Endereco>(enderecoDto);
             _context.Enderecos.Add(endereco);
@@ -29,8 +29,8 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Filme> RecuperaEnderecos() {
-            return _context.Filmes;
+        public IEnumerable<Endereco> RecuperaEnderecos() {
+            return _context.Enderecos;
         }
 
         [HttpGet("{id}")]
