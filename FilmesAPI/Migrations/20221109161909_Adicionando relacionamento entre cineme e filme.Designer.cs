@@ -3,6 +3,7 @@ using System;
 using FilmesAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class FilmeContextModelSnapshot : ModelSnapshot
+    [Migration("20221109161909_Adicionando relacionamento entre cineme e filme")]
+    partial class Adicionandorelacionamentoentrecinemeefilme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,9 +75,6 @@ namespace FilmesAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("ClassificacaoEtaria")
-                        .HasColumnType("int");
-
                     b.Property<string>("Diretor")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -124,7 +123,7 @@ namespace FilmesAPI.Migrations
                     b.Property<int>("FilmeId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("HorarioDeEncerramento")
+                    b.Property<DateTime>("HoraDeEncerramento")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
