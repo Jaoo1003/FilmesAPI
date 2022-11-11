@@ -59,7 +59,7 @@ namespace FilmesAPI.Services {
             return Result.Ok();
         }
 
-        internal Result DeletaFilme(int id) {
+        public Result DeletaFilme(int id) {
             Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
             if (filme == null) {
                 return Result.Fail("Filme não encontrado");

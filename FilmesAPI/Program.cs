@@ -15,8 +15,10 @@ builder.Services.AddDbContext<AppDbContext>(opt => opt.UseLazyLoadingProxies().U
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<FilmeService, FilmeService>();
 builder.Services.AddScoped<EnderecoService, EnderecoService>();
+builder.Services.AddScoped<GerenteService, GerenteService>();
 builder.Services.AddScoped<SessaoService, SessaoService>();
 builder.Services.AddScoped<CinemaService, CinemaService>();
+
 
 var app = builder.Build();
 
