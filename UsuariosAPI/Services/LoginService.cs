@@ -21,7 +21,7 @@ namespace UsuariosAPI.Services {
                 Token token = _tokenService.CreateToken(identityUser);
                 return Result.Ok().WithSuccess(token.Value);
             }
-            return Result.Fail("Usuario ou Senha incorretos");
+            return Result.Fail("Login falhou");
         }
     }
 }

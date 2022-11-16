@@ -47,7 +47,7 @@ namespace FilmesAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult AtualizaFilme(int id, [FromBody] UpdateFilmeDto filmeDto) {
             Result resultado = _filmeService.AtualizaFilme(id, filmeDto);
-            if (resultado.IsFailed) return NotFound();
+            if (resultado.IsSuccess) return NotFound();
             return NoContent();
         }
 
