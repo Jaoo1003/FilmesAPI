@@ -23,6 +23,7 @@ builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
     .AddEntityFrameworkStores<UserDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Configuration.AddUserSecrets<Program>();
 builder.Services.AddScoped<CadastroService, CadastroService>();
 builder.Services.AddScoped<EmailService, EmailService>();
 builder.Services.AddScoped<LoginService, LoginService>();
