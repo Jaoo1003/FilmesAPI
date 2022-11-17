@@ -1,15 +1,9 @@
-﻿using FilmesAPI.Data;
-using System.Globalization;
-using FilmesAPI.Models;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
-using AutoMapper;
 using FilmesAPI.Data.Dtos.Cinemas;
 using FilmesAPI.Services;
-using Microsoft.EntityFrameworkCore.Metadata;
 using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FilmesAPI.Controllers
 {
@@ -24,7 +18,7 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpPost]
-
+        [Authorize(Roles = "admin")]
         public IActionResult AdicionaFilme([FromBody] CreateFilmeDto filmeDto) {
             ReadFilmeDto readDto = _filmeService.AdicionaFilme(filmeDto);            
             return CreatedAtAction(nameof(RecuperaFilmesPorId), new { Id = readDto.Id }, readDto);
