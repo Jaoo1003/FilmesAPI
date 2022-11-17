@@ -24,9 +24,10 @@ namespace UsuariosAPI.Services {
         public Result CadastraUsuario(CreateUsuarioDto createDto) {
             Usuario usuario = _mapper.Map<Usuario>(createDto);
             IdentityUser<int> usuarioIdentity = _mapper.Map<IdentityUser<int>>(usuario);
-            Task<IdentityResult> resultadoIdentity = _userManager.CreateAsync(usuarioIdentity, createDto.Password);            
+            Task<IdentityResult> resultadoIdentity = _userManager.CreateAsync(usuarioIdentity, createDto.Password);           
 
-            if (resultadoIdentity.Result.Succeeded) {                
+            if (resultadoIdentity.Result.Succeeded) {
+                _userManager.AddToRoleAsync(usuarioIdentity, "regular");
                 var code = _userManager.GenerateEmailConfirmationTokenAsync(usuarioIdentity).Result;
                 var encodedCode = HttpUtility.UrlEncode(code);
 
