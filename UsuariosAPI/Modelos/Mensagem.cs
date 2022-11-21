@@ -10,7 +10,7 @@ namespace UsuariosAPI.Modelos {
             Destinatario = new List<MailboxAddress>();
             Destinatario.AddRange(destinatario.Select(d => new MailboxAddress("", d)));
             Assunto = assunto;
-            Conteudo = $"http://localhost:7000/ativa?UsuarioId={usuarioId}&CodigoDeAtivacao={codigo}";
+            Conteudo = $"http://localhost:5005/ativa?UsuarioId={usuarioId}&CodigoDeAtivacao={codigo}";
         }
     }
 }

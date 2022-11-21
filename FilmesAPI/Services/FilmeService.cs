@@ -34,6 +34,9 @@ namespace FilmesAPI.Services {
 
             if (filmes != null) {
                 List<ReadFilmeDto> filmeDto = _mapper.Map<List<ReadFilmeDto>>(filmes);
+                foreach (ReadFilmeDto filme in filmeDto) {
+                    filme.HoraDaConsulta = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+                }
                 return filmeDto;
             }
             return null;
